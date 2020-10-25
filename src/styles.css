@@ -14,14 +14,18 @@ body {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
   margin: 0;
+  position: relative;
 }
 
+.box {
+  margin: 35px;
+}
 .container {
-  margin: 25px 80px;
-  padding: 0 20px;
+  margin: 25px 25px 0px 25px;
+  padding: 0;
 }
 
-form {
+.form {
   margin: 150px auto;
   width: 300px;
 }
@@ -48,13 +52,15 @@ h2 {
   width: 325px;
 }
 
-.form-control label {
+.form-control label,
+label {
   color: #777;
   display: block;
   margin-bottom: 5px;
 }
 
-.form-control input {
+.form-control input,
+input {
   border: 2px solid #f0f0f0;
   border-radius: 4px;
   display: block;
@@ -99,6 +105,52 @@ h2 {
 button:disabled {
   background: #8fcef3;
 }
+
+/*
+FORM EN LINEA
+*/
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 50px;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+/*  responsive */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 /*
 NAV
 */
@@ -159,7 +211,60 @@ Footer
 footer {
   background-color: rgb(2, 2, 2);
   color: white;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
+  height: 2.5rem; /* Footer height */
+}
+
+/*
+GRID
+*/
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 50%;
+}
+
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+h3 {
+  text-align: center;
+  border-bottom: var(--success-color) 1px solid;
+  margin: 25px;
+}
+
+.letra {
+  white-space: pre;
+  display: inline-block;
+}
+
+/*
+UTILITIES
+*/
+
+.mb-5 {
+  margin-bottom: 15px;
+}
+
+.mt-5 {
+  margin-top: 15px;
+}
+
+img {
+  max-width: 350px;
 }

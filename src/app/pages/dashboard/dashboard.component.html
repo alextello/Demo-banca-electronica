@@ -1,1 +1,36 @@
-<p>dashboard works!</p>
+<form class="form-inline" (ngSubmit)="handleSubmit()" [formGroup]="this.form">
+  <label for="artista">Artista:</label>
+  <input
+    type="text"
+    id="artista"
+    placeholder="Nombre del artista"
+    name="aritsta"
+    formControlName="artista"
+  />
+  <label for="cancion">Canción:</label>
+  <input
+    type="text"
+    id="cancion"
+    placeholder="Nombre de la cancion"
+    name="cancion"
+    formControlName="cancion"
+  />
+  <button type="submit" class="mt-5 mb-5">Buscar</button>
+</form>
+<div class="row" *ngIf="this.biografia">
+  <div class="column">
+    <h3><strong>Bibliografía</strong></h3>
+    <div class="box">
+      <img [src]="this.biografia.strArtistThumb" alt="Artista" />
+      <br />
+      Género: <strong>{{ this.biografia.strGenre }}</strong>
+      <p>{{ this.biografia.strBiographyES }}</p>
+    </div>
+  </div>
+  <div class="column">
+    <h3><strong>Letra de la canción</strong></h3>
+    <div class="box">
+      <p class="letra">{{ this.letra }}</p>
+    </div>
+  </div>
+</div>

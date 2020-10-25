@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UtilitiesModule } from './utilities/utilities.module';
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     UtilitiesModule,
     ReactiveFormsModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
