@@ -17,4 +17,9 @@ export class HttpService {
     const url = `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
     return this.http.get(url);
   }
+
+  cuentas(): Observable<any> {
+    const url = `https://jsonplaceholder.typicode.com/users`;
+    return this.http.get(url);
+  }
 }

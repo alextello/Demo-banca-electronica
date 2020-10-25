@@ -19,8 +19,8 @@ export class DashboardComponent implements OnInit {
   letra: string;
   constructor(private fb: FormBuilder, private http: HttpService) {
     this.form = this.fb.group({
-      artista: ['metallica', [Validators.required]],
-      cancion: ['enter sandman', [Validators.required]],
+      artista: ['', [Validators.required]],
+      cancion: ['', [Validators.required]],
     });
   }
 
@@ -49,7 +49,6 @@ export class DashboardComponent implements OnInit {
       });
       this.http.cancion(this.cancion, this.artista).subscribe((val) => {
         this.letra = val.lyrics;
-        console.log(val);
       });
     } else {
       Swal.fire({
