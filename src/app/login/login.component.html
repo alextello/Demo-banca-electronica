@@ -1,1 +1,33 @@
-<p>login works!</p>
+<app-spinner *ngIf="this.loading"></app-spinner>
+<form
+  id="form"
+  class="form"
+  (ngSubmit)="handleSubmit()"
+  *ngIf="!this.loading"
+  [formGroup]="this.form"
+>
+  <h2>Inicia sesión</h2>
+  <div class="form-control">
+    <label for="correo">Correo</label>
+    <input
+      type="email"
+      id="correo"
+      placeholder="Ingresa tu correo"
+      formControlName="email"
+    />
+    <small>error</small>
+  </div>
+  <div class="form-control">
+    <label for="password"
+      >Ingresa <i class="fa fa-tumblr" aria-hidden="true"></i> contraseña</label
+    >
+    <input
+      type="password"
+      id="password"
+      placeholder="Ingresa tu contraseña"
+      formControlName="password"
+    />
+    <small>error</small>
+  </div>
+  <button type="submit">Enviar</button>
+</form>
