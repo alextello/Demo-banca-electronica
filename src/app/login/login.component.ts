@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +17,15 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
-      email: ['', [Validators.email, Validators.required]],
+      email: [
+        '',
+        [
+          Validators.pattern(
+            /^\w+([\.-]?\w+)+@\w+([\.:]?\w+)+(\.[a-zA-Z0-9]{2,3})+$/
+          ),
+          Validators.required,
+        ],
+      ],
       password: ['', [Validators.minLength(8), Validators.required]],
     });
   }
@@ -28,5 +41,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       }, 2000);
     }
+  }
+
+  get emailControl(): AbstractControl {
+    return this.form.get('email');
+  }
+  get passwordControl(): AbstractControl {
+    return this.form.get('password');
   }
 }
